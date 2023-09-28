@@ -82,11 +82,15 @@ body * {
   top: 50%;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-out 0.4s;
 }
 
 .light #switch button {
-  right: 0%;
-  left: initial;
+ animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -158,12 +162,23 @@ footer {
   font-size: 14px;
 }
 
-/*media queries*/
-@media (min-width: 700px) {
-  :root {
-    --bg-url: url(./assets.background_night.jpg);
+/*media queries - none*/
+
+
+/*animation*/
+@keyframes slide-in {
+  from{
+    left:0;
   }
-  .light {
-    --bg-url: url(./assets.background_day.jpg);
+  to{
+    left: 50%;
+  }
+}
+@keyframes slide-out {
+  from{
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
